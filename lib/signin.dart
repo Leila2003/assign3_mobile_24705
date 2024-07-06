@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'auth_service.dart';
+// import 'auth_service.dart';
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -23,12 +23,12 @@ class _SignInScreenState extends State<SignInScreen> {
     if (_formKey.currentState!.validate()) {
       final email = _emailController.text;
       final password = _passwordController.text;
-      context.read<AuthService>().signInWithEmail(email, password);
+      // context.read<AuthService>().signInWithEmail(email, password);
     }
   }
 
   void _signInWithGoogle() {
-    context.read<AuthService>().signInWithGoogle();
+    // context.read<AuthService>().signInWithGoogle();
   }
 
   @override

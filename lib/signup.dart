@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'auth_service.dart';
+// import 'auth_service.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -23,7 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (_formKey.currentState!.validate()) {
       final email = _emailController.text;
       final password = _passwordController.text;
-      context.read<AuthService>().signUpWithEmail(email, password);
+      // context.read<AuthService>().signUpWithEmail(email, password);
     }
   }
 

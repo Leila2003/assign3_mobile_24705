@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
-import 'auth_service.dart';
+// import 'auth_service.dart';
 //import 'theme_notifier.dart';
 import 'signin.dart';
 import 'signup.dart';
@@ -15,7 +15,7 @@ import 'home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
   runApp(
     ChangeNotifierProvider<ThemeNotifier>(
       create: (_) => ThemeNotifier(),
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => AuthService()),
+        // ChangeNotifierProvider(create: (_) => AuthService()),
         ChangeNotifierProvider(create: (_) => ThemeNotifier()),
       ],
       child: Consumer<ThemeNotifier>(
@@ -164,6 +164,8 @@ class ConnectivityService {
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
       String message;
+      print("===================Result is ================>");
+      print(result.toString());
       switch (result) {
         case ConnectivityResult.mobile:
           message = "Connected to Mobile Network";
@@ -175,13 +177,13 @@ class ConnectivityService {
           message = "No Internet Connection";
           break;
         default:
-          message = "Unknown Network Status";
+          message = "No Internet Connection";
           break;
       }
       Fluttertoast.showToast(
         msg: message,
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
+        gravity: ToastGravity.TOP,
       );
     });
   }
